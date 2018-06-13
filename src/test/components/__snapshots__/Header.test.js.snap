@@ -7,7 +7,7 @@ exports[`should render Header correctly 1`] = `
   </h1>
   <NavLink
     activeClassName="is-active"
-    ariaCurrent="true"
+    aria-current="page"
     exact={true}
     to="/"
   >
@@ -16,7 +16,7 @@ exports[`should render Header correctly 1`] = `
   <br />
   <NavLink
     activeClassName="is-active"
-    ariaCurrent="true"
+    aria-current="page"
     to="/create"
   >
     Create Expense
@@ -24,7 +24,7 @@ exports[`should render Header correctly 1`] = `
   <br />
   <NavLink
     activeClassName="is-active"
-    ariaCurrent="true"
+    aria-current="page"
     to="/help"
   >
     Help

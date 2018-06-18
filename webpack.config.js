@@ -46,12 +46,12 @@ module.exports = (env, argv) => {
     plugins: [
       CSSExtract,
       new webpack.DefinePlugin({
-        FIREBASE_API_KEY: JSON.stringify(process.env.FIREBASE_API_KEY),
-        FIREBASE_DOMAIN: JSON.stringify(process.env.FIREBASE_DOMAIN),
-        FIREBASE_DATABASE_URL: JSON.stringify(process.env.FIREBASE_DATABASE_URL),
-        FIREBASE_PROJECT_ID: JSON.stringify(process.env.FIREBASE_PROJECT_ID),
-        FIREBASE_STORGAE_BUCKET: JSON.stringify(process.env.FIREBASE_STORGAE_BUCKET),
-        FIREBASE_MESSAGING_SENDER_ID: JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID)
+        'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
+        'process.env.FIREBASE_DOMAIN': JSON.stringify(process.env.FIREBASE_DOMAIN),
+        'process.env.FIREBASE_DATABASE_URL': JSON.stringify(process.env.FIREBASE_DATABASE_URL),
+        'process.env.FIREBASE_PROJECT_ID': JSON.stringify(process.env.FIREBASE_PROJECT_ID),
+        'process.env.FIREBASE_STORGAE_BUCKET': JSON.stringify(process.env.FIREBASE_STORGAE_BUCKET),
+        'process.env.FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID)
       })
     ],
     devtool: isProduction ? 'source-map' : 'inline-source-map',

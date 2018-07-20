@@ -1,0 +1,71 @@
+Who are my top 5 competitors?
+What are the main differences?
+How do I differentiate my product?
+
+
+
+Personas
+
+Susanne
+single women
+age : 30-35
+marketing
+Want to do something good for society
+
+Christin
+Student
+age : 22-30
+vegeteraian
+wants to help refugees kids
+
+Laura
+age: 68
+pennsion
+has a lot of free time
+
+Marius
+age: 35
+Never volunteered before, but is looking for new meaning of life
+
+
+
+Features
+
+										Importance	Feasibility		User
+POC
+---------
+increase unique visitors						5			2
+- register
+- login
+increase number of organizations				5			1
+edit organiation info:
+- basic info
+- requirements
+- what will I learn
+request to volunteer and get response
+record time to respond
+find an organization
+categories for jobs: work with kids, volunteer with a friend
+list of volunteers linked to each organization
+list of organiaztions per user
+
+introduction:
+- studies: why you should volunteer?
+- diaries of other volunteers
+
+document volunteering hours
+allow user create a diary: pics/stories
+Feedback (written + stars)
+add my friends
+list of favorites
+proposals for voluneteering organizations
+show my history
+kudo achievments
+post achievments on social media
+upload video sharing experience
+
+Release 
+---------
+privacy regulations
+
+

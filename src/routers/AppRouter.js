@@ -1,13 +1,12 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
-import AddExpensePage from '../components/AddExpensePage';
-import EditExpensePage from '../components/EditExpensePage';
-import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
 import LoginPage from '../components/LoginPage';
+import RegisterPage from '../components/RegisterPage';
 import NotFoundPage from '../components/NotFoundPage';
-import PrivateRoute from './PrivateRoute';
-import PublicRoute from './PublicRoute';
+import MyPage from '../components/MyPage';
+import ForgotPasswordPage from '../components/ForgotPasswordPage';
+
 
 export const history = createHistory();
 
@@ -15,10 +14,10 @@ const AppRouter = () => (
 	<Router history={history}>
 		<div>
 			<Switch>			
-				<PublicRoute path="/" component={LoginPage} exact={true}/>
-				<PrivateRoute path="/create" component={AddExpensePage}/>
-				<PrivateRoute path="/dashboard" component={ExpenseDashboardPage} exact={true}/>
-				<PrivateRoute path="/edit/:id" component={EditExpensePage}/>
+				<Route path="/" component={LoginPage} exact={true}/>
+				<Route path="/register" component={RegisterPage} exact={true}/>
+				<Route path="/dashboard" component={MyPage} exact={true}/>
+				<Route path="/forgot-password" component={ForgotPasswordPage} exact={true}/>
 				<Route component={NotFoundPage}/>
 			</Switch>
 		</div>
@@ -26,4 +25,3 @@ const AppRouter = () => (
 );
 
 export default AppRouter;
-

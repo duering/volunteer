@@ -1,7 +1,7 @@
 export default (state = {}, action) => {
 	switch (action.type) {		
 		case 'LOGIN':
-			return action.cognitoUserSession;
+			return { username: action.username };
 		case 'LOGOUT':
 			return {};
 		default:

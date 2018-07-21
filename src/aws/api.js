@@ -1,6 +1,13 @@
 import cognito from '../aws/cognito';
 import request from 'superagent';
 
+// const stage = 'https://73pylr12dj.execute-api.us-east-2.amazonaws.com/dev/';
+// const resource = stage + 'compare-yorself';
+
+const stage = 'https://b92rrfa9qa.execute-api.us-east-2.amazonaws.com/dev/';
+const resource = stage + 'organization';
+
+
 const getData = (callback) => {
 	cognito.getAuthenticatedUser().getSession((err, session) => {
 		if (err) {
@@ -8,7 +15,7 @@ const getData = (callback) => {
 		}
 		const queryParam = '?accessToken=' + session.getAccessToken().getJwtToken();
 		request
-	  .get('https://73pylr12dj.execute-api.us-east-2.amazonaws.com/dev/compare-yorself/single' + queryParam)
+	  .get(resource)
 	  .set('Authorization', session.getIdToken().getJwtToken())
 	  .end((error, result) => {
 	    if (error) {
@@ -23,11 +30,11 @@ const getData = (callback) => {
 const postData = (data, callback) => {
 	cognito.getAuthenticatedUser().getSession((err, session) => {
 		if (err) {
-			callback(err);
+			callback(error);
 		}
 		const queryParam = '?accessToken=' + session.getAccessToken().getJwtToken();
 		request
-	  .post('https://73pylr12dj.execute-api.us-east-2.amazonaws.com/dev/compare-yorself')
+	  .post(resource)
 	  .send(data) 
 	  .set('Authorization', session.getIdToken().getJwtToken())
 	  .end((error, result) => {

@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { login } from '../actions/auth';
-import Cognito from '../aws/cognito';
+import { startLogin } from '../actions/auth';
+import { startRead } from '../actions/organization';
 import NotFoundPage from '../components/NotFoundPage';
 import ForgotPasswordPage from '../components/ForgotPasswordPage';
 import { history } from '../routers/AppRouter';
@@ -26,16 +26,7 @@ class LoginPage extends React.Component {
 	};
 	onSubmit = (e) => {
 		e.preventDefault();
-
-		Cognito.signIn(this.state.username, this.state.password, {
-	    onSuccess: function (result) {
-	      console.log(result);
-	      history.push('/Dashboard');
-	    },
-	    onFailure: function(err) {
-	      console.error(err);
-	    }
-	  });
+	  history.push('/dashboard');
 	};
 	render() {
 		return (
@@ -45,6 +36,11 @@ class LoginPage extends React.Component {
 						<span>
 							Login
 						</span>
+						<button onClick={() => {
+							
+						}}>
+						TEST
+						</button>
 
 						<div>
 							<span>Username</span>
@@ -71,7 +67,10 @@ class LoginPage extends React.Component {
 						</div>
 						
 						<div>
-							<button>Login</button>
+							<button onClick={() => {
+								this.props.startLogin(this.state.username, this.state.password);
+								this.props.startRead();
+							}}>Login</button>
 						</div>
 
 						<Link to="/forgot-password">
@@ -93,8 +92,8 @@ class LoginPage extends React.Component {
 }
 
 const mapDispathToProps = (dispatch) => ({
-	startLogin: (username, password) => dispatch(startLogin(username, password))
+	startLogin: (username, password) => dispatch(startLogin(username, password)),
+	startRead: () => dispatch(startRead())
 });
 
-export default LoginPage;
-// export default connect(undefined, mapDispathToProps)(LoginPage);
+export default connect(undefined, mapDispathToProps)(LoginPage);

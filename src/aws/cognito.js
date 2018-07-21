@@ -6,7 +6,6 @@ import {
   CognitoSession
 } from 'amazon-cognito-identity-js';
 
-
 const POOL_DATA = {
   // OPTIONAL - Amazon Cognito User Pool ID
   UserPoolId: process.env.COGNITO_USER_POOL_ID,
@@ -35,13 +34,16 @@ const getAuthenticatedUser = () => {
   return userPool.getCurrentUser();
 };
 
-const logout = () => {
-  this.getAuthenticatedUser().signOut();
+const signOut = () => {
+  const user = getAuthenticatedUser();
+  if (user) {
+    user.signOut();
+  }
 };
 
 const cognito = {
   signIn,
-  logout,
+  signOut,
   getAuthenticatedUser
 };
 
